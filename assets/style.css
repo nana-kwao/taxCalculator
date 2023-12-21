@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "myFont";
+  src: url('Croissant_One/CroissantOne-Regular.ttf');
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "myFont";
+  font-size: large;
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 100px;
+  background-color: rgb(34, 150, 134);
+}
+.CalcBtn{
+  width: 200px;
+  height: 70px;
+  text-align: center;
+  border-radius: 25px;
+  background-color: chartreuse;
+  border: none;
+  box-shadow: 5px 2px 5px rgb(163, 57, 57);
+}
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+label{
+  color: white;
+}
+input{
+  width: auto;
+  height: 40px;
+  background-color: rgb(175, 228, 210);
+  border: none;
+  border-radius: 5px;
+}
+input::placeholder{
+  font-size: smaller;
+}
+input:focus{
+  outline: none;
+}
+.SubmitBtn{
+  border: none;
+  border-radius: 10px;
+  background-color: chartreuse;
+  box-shadow: 5px 2px 5px rgb(163, 57, 57)
+}
+.container{
+  background-color: rgb(47, 110, 110);
+  color: white;
+  width: auto;
+  height: auto;
+}
+.heading{
+  font-size: x-large;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.incomeText{
+  font-size: larger;
+  text-align: center;
+  margin-bottom: 10px;
+}
+ul{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  flex-direction: column;
+  gap: 5px;
+}
