@@ -19,6 +19,7 @@ body{
   background-color: rgb(34, 150, 134);
 }
 .CalcBtn{
+  display: block;
   width: 200px;
   height: 70px;
   text-align: center;
