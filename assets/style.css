@@ -1,6 +1,6 @@
 @font-face {
   font-family: "myFont";
-  src: url('Croissant_One/CroissantOne-Regular.ttf');
+  src: url('Quicksand/Quicksand-VariableFont_wght.ttf');
 }
 
 *{
@@ -16,51 +16,60 @@ body{
   justify-content: center;
   align-content: center;
   padding-top: 100px;
-  background-color: rgb(34, 150, 134);
+  background-image: url("images/white-painted-wall-texture-background.jpg");
 }
+
 .CalcBtn{
   display: block;
-  width: 200px;
-  height: 70px;
+  width: 320px;
+  height: 50px;
   text-align: center;
-  border-radius: 25px;
-  background-color: chartreuse;
+  border-radius: 5px;
+  background-color: #80669d;
   border: none;
-  box-shadow: 5px 2px 5px rgb(163, 57, 57);
+  color: rgb(255, 255, 255);
+  box-shadow: 5px 2px 5px #491288;
 }
 form{
   display: flex;
   flex-direction: column;
+  width: max-content;
   gap: 10px;
 }
 label{
-  color: white;
+  color: #491288;
+  font-weight: 700;
 }
 input{
-  width: auto;
+  width: 320px;
   height: 40px;
   padding: 5px;
-  background-color: rgb(175, 228, 210);
-  border: none;
+  background-color: none;
+  border: 1px solid #a881af;
   border-radius: 5px;
 }
 input::placeholder{
   font-size: smaller;
 }
 input:focus{
-  outline: none;
+  outline: 1px solid #80669d;
 }
 .SubmitBtn{
+  width: 320px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #80669d;
   border: none;
-  border-radius: 10px;
-  background-color: chartreuse;
-  box-shadow: 5px 2px 5px rgb(163, 57, 57)
+  color: rgb(255, 255, 255);
+  box-shadow: 5px 2px 5px #491288;
 }
 .container{
-  background-color: rgb(47, 110, 110);
+  background-color: #80669d;
   color: white;
-  width: auto;
-  height: auto;
+  width: max-content;
+  height: 380px;
+  box-shadow: 5px 5px 5px #491288;
+  border-radius: 5px;
 }
 .heading{
   font-size: x-large;
@@ -75,7 +84,9 @@ input:focus{
 ul{
   display: flex;
   justify-content: center;
+  align-items: center;
   list-style-type: none;
   flex-direction: column;
   gap: 5px;
+  margin-top: 20px;
 }
