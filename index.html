@@ -3,20 +3,58 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tax Calc</title>
+    <title>VAT CALCULATION</title>
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/script.js" defer></script>
   </head>
   <body>
-    <button type="button" class="CalcBtn">Calculate</button>
-    <form>
-      <label for="month">Month</label>
-      <input type="text" name="month" id="month" placeholder="Enter month for calculation: ">
-      <label for="income">Income</label>
-      <input type="text" name="income" id="income" placeholder="Enter income: ">
-      <label for="vatInput">VAT input</label>
-      <input type="text" name="vatInput" id="vatInput" placeholder="Enter VAT input: ">
-      <button type="button" class="SubmitBtn">Calculate</button>
-    </form>
+    <div class="container">
+      <div class="menu">
+        <div class="menu-text-area">
+          <h2 class="menu-text">GRA VAT CALCULATIONS</h2>
+        </div>
+        <div class="menu-list">
+          <ul class="list">
+            <li class="list-item" id="homeBtn">Home</li>
+            <li class="list-item" id="calcBtn">Calculate</li>
+            <li class="list-item" id="resultBtn">Result</li>
+            <li class="list-item" id="aboutBtn">About</li>
+          </ul>
+        </div>
+      </div>
+      <div class="home" id="home">
+        <div class="welcome">
+          <h3 class="welcome-text">WELCOME TO GRA VAT TAX CALCULATOR</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur quod dignissimos numquam, maiores dolorem magnam vel debitis dolorum maxime. Velit, quibusdam odio. Illo, libero dolore ex quibusdam ea sit vero!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error hic a nesciunt eligendi enim blanditiis unde, reiciendis aperiam vitae. Quod earum ducimus labore laborum dolorem distinctio est iste explicabo nemo!</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur quod dignissimos numquam, maiores dolorem magnam vel debitis dolorum maxime. Velit, quibusdam odio. Illo, libero dolore ex quibusdam ea sit vero!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error hic a nesciunt eligendi enim blanditiis unde, reiciendis aperiam vitae. Quod earum ducimus labore laborum dolorem distinctio est iste explicabo nemo!</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur quod dignissimos numquam, maiores dolorem magnam vel debitis dolorum maxime. Velit, quibusdam odio. Illo, libero dolore ex quibusdam ea sit vero!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error hic a nesciunt eligendi enim blanditiis unde, reiciendis aperiam vitae. Quod earum ducimus labore laborum dolorem distinctio est iste explicabo nemo!</p>
+          <button type="button" class="calcBtn">Calculate</button>
+        </div>
+      </div>
+      <div class="calc" id="calc">
+        <form>
+          <label for="month">Month</label>
+          <input type="text" id="month" name="month-input">
+          <label for="income">Income</label>
+          <input type="number" id="income" name="income-input">
+          <label for="vat-input">VAT Input</label>
+          <input type="number" id="vat-input" name="vat-input">
+          <button type="button" class="calcBtn">Calculate</button>
+        </form>
+      </div>
+      <div class="result" id="result"></div>
+      <div class="about" id="about">
+        <h2 class="welcome-text">GRA TAX CALCULATOR</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quisquam soluta fugiat, cupiditate maxime ipsa architecto sequi ab et dolores corrupti veniam, voluptate, nisi quia ratione enim unde earum beatae nulla dicta consequuntur aliquam! At eaque fugit ipsa provident quis, laudantium eligendi enim ullam quo, magnam ratione beatae magni exercitationem incidunt, saepe dolores? Sequi reprehenderit recusandae veniam itaque ea fuga assumenda vel quas. Laborum, eos? Rerum, rem aut fuga earum sit consequatur corrupti voluptas facere ipsum similique magnam enim soluta laboriosam, distinctio doloribus ipsa temporibus perspiciatis reprehenderit facilis necessitatibus. In expedita necessitatibus cupiditate, unde hic quidem esse voluptates amet obcaecati inventore vel iure labore aliquam tempore, distinctio alias, cumque fugiat ipsa tenetur reiciendis. Culpa officia perferendis illum soluta totam minima quas cumque voluptatibus doloremque tempore adipisci, deleniti, in voluptatem vel quidem ullam veniam, non beatae expedita. Quae qui maiores optio deleniti obcaecati, adipisci natus, nobis magnam facilis quam quos et accusantium dolorum. Corrupti nemo illo assumenda eos nisi! Hic expedita autem a, excepturi quis, exercitationem quibusdam consequatur pariatur ullam aspernatur modi laboriosam accusantium magnam sed blanditiis eveniet fugiat deserunt itaque quasi. Ad ducimus quibusdam dolores esse commodi. Odit rem culpa molestias repudiandae architecto libero placeat, a eligendi sint nihil quod!</p>
+        <div class="contact">
+          <p>Developer <span>Nana Kwao</span></p>
+          <p>Mobile <span>+233559082614</span></p>
+          <p>Email <span>nanakwaofreiku@outlook.com</span></p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

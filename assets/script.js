@@ -1,64 +1,148 @@
-// get Calculate Btn from HTML
-const CalcBtn = document.querySelector('.CalcBtn');
+// GET OBJECTS FROM DOM 
+const menuArea = document.querySelector(".menu");
+const homeBtn = document.getElementById("homeBtn");
+const calcBtn = document.getElementById("calcBtn");
+const resultBtn = document.getElementById("resultBtn");
+const aboutBtn = document.getElementById("aboutBtn");
+const calcBtnHome = document.querySelector(".home .calcBtn");
+const calcBtnCalc = document.querySelector("form .calcBtn");
 
-// get Form from HTML
-const DataForm = document.querySelector('form');
+const home = document.getElementById("home");
+const calc = document.getElementById("calc");
+const result = document.getElementById("result");
+const about = document.getElementById("about");
 
-// set Form to Display "none"
-DataForm.style.display = "none";
+// functions for showing various tabs
+const showHome = () => {
+  home.style.display = "flex";
+  result.style.display = "none";
+  about.style.display = "none";
+  calc.style.display = "none";
+}
 
-// set Form to Display "flex" on CalcBtn click while CalcBtn Display "none"
-CalcBtn.addEventListener('click', () => {
-  DataForm.style.display = "flex";
-  CalcBtn.style.display = "none";
-})
+const showCalc = () => {
+  home.style.display = "none";
+  result.style.display = "none";
+  about.style.display = "none";
+  calc.style.display = "flex";
+}
 
-// CalcTax() for all calculations
-function CalcTax(){
+const showResult = () => {
+  home.style.display = "none";
+  result.style.display = "flex";
+  about.style.display = "none";
+  calc.style.display = "none";
+}
 
-  // get elements from DOM
-  let month = document.getElementById('month').value.toUpperCase();
-  let income = document.querySelector('#income').value;
-  let vatInput = document.querySelector('#vatInput').value;
-  
-  // Levies Object for Levies calculation
+const showAbout = () => {
+  home.style.display = "none";
+  result.style.display = "none";
+  about.style.display = "flex";
+  calc.style.display = "none";
+}
+
+
+
+const CalcTax = () => {
+  // get form value
+  const month = document.getElementById("month").value.toUpperCase();
+  const income = document.getElementById("income").value;
+  const getVatInput = document.getElementById("vat-input").value;
+  // levies calculation
   const Levies = {
-    nhil : () => {const value = income * (25/1219); return parseFloat(value.toFixed(2));},
-    g_fund : () => {const value = income * (25/1219); return parseFloat(value.toFixed(2));},
-    covid_levy : () => {const value = income * (10/1219); return parseFloat(value.toFixed(2));},
-    totalLevies : () => {const value = Levies.nhil() + Levies.g_fund() + Levies.covid_levy(); return parseFloat(value.toFixed(2));}
+    nhil : () => {const results = income * (25/1219); return parseFloat(results.toFixed(2));},
+    getfund : () => {const results = income * (25/1219); return parseFloat(results.toFixed(2));},
+    covidlevy : () => {const results = income * (10/1219); return parseFloat(results.toFixed(2));},
+    totalLevies : () => {const results = Levies.nhil() + Levies.getfund() + Levies.covidlevy(); return results;},
+
+    // taxable outputs
+    nhilTaxable : () => {const results = Levies.nhil() / (2.5/100); return parseFloat(results.toFixed(2));},
+    getfundTaxable : () => {const results = Levies.getfund() / (2.5/100); return parseFloat(results.toFixed(2));},
+    covidlevyTaxable : () => {const results = Levies.covidlevy() / (1/100); return parseFloat(results.toFixed(2));}
   }
 
-  // VAT Object for VAT calculation
+  //vat calculation 
   const VAT = {
-    vatoutpt : () => {const value = income * (159/1219); return parseFloat(value.toFixed(2))},
-    vatintpt : () => {const value = vatInput * (159/1219); return parseFloat(value.toFixed(2))},
-    totalVat : () => {const value = VAT.vatoutpt() - VAT.vatintpt(); return parseFloat(value.toFixed(2))}
+    vatOutput : () => {const results = income * (159/1219); return parseFloat(results.toFixed(2));},
+    vatInput : () => {const results = getVatInput * (10/1219); return parseFloat(results.toFixed(2));},
+    totalVats : () => {const results = VAT.vatOutput() - VAT.vatInput(); return results;},
+
+    // taxable outputs
+    vatOutputTaxable : () => {const results = VAT.vatOutput() / (15/100); return parseFloat(results.toFixed(2));},
+    vatInputTaxable : () => {const results = VAT.vatInput() / (15/100); return parseFloat(results.toFixed(2));}
   }
 
-  // display content on DOM
-  function displayInfo(){
-    let body = document.querySelector('body');
-    body.innerHTML = `
-    <div class="container">
-    <h2 class="heading">TAX CALCULATION FOR ${month}</h2>
-    <h4 class="incomeText">INCOME: ${income}</h4>
-    <ul>
-      <li>NHIL: ${Levies.nhil()}</li>
-      <li>G-FUND: ${Levies.g_fund()}</li>
-      <li>COVID-19 LEVY: ${Levies.covid_levy()}</li>
-      <li>TOTAL LEVIES: ${Levies.totalLevies()}</li>
-      <li>VATOUTPUT: ${VAT.vatoutpt()}</li>
-      <li>VATINPUT: ${VAT.vatintpt()}</li>
-      <li>TOTAL VAT: ${VAT.totalVat()}</li>
-    </ul>
-  </div>
-    `
+  const displayInfo = () => {
+    result.innerHTML = `
+      <table>
+      <caption>Tax Calculation for ${month}</caption>
+      <thead>
+        <tr>
+          <th>Tax</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NHIL</td>
+          <td>${Levies.nhil()}</td>
+        </tr>
+        <tr>
+          <td>G-FUND</td>
+          <td>${Levies.getfund()}</td>
+        </tr>
+        <tr>
+          <td>COVID-19 LEVY</td>
+          <td>${Levies.covidlevy()}</td>
+        </tr>
+        <tr>
+          <td>TOTAL LEVIES</td>
+          <td>${Levies.totalLevies()}</td>
+        </tr>
+        <tr>
+          <td>NHIL TAXABLE VALUE</td>
+          <td>${Levies.nhilTaxable()}</td>
+        </tr>
+        <tr>
+          <td>G-FUND TAXABLE VALUE</td>
+          <td>${Levies.getfundTaxable()}</td>
+        </tr>
+        <tr>
+          <td>COVID-19 LEVY TAXABLE VALUE</td>
+          <td>${Levies.covidlevyTaxable()}</td>
+        </tr>
+        <tr>
+          <td>VAT OUTPUT</td>
+          <td>${VAT.vatOutput()}</td>
+        </tr>
+        <tr>
+          <td>VAT INPUT</td>
+          <td>${VAT.vatInput()}</td>
+        </tr>
+        <tr>
+          <td>TOTAL VAT</td>
+          <td>${VAT.totalVats()}</td>
+        </tr>
+        <tr>
+          <td>VAT OUTPUT TAXABLE</td>
+          <td>${VAT.vatOutputTaxable()}</td>
+        </tr>
+        <tr>
+          <td>VAT INPUT TAXABLE</td>
+          <td>${VAT.vatInputTaxable()}</td>
+        </tr>
+      </tbody>
+    </table>`;
+    showResult();
   }
 
   return displayInfo();
 }
 
-// an event Listener for SubmitBtn
-const SubmitBtn = document.querySelector('.SubmitBtn');
-SubmitBtn.addEventListener('click', CalcTax);
+// add event listeners to menu lists
+homeBtn.addEventListener("click", showHome);
+calcBtn.addEventListener("click", showCalc);
+resultBtn.addEventListener("click", showResult);
+aboutBtn.addEventListener("click", showAbout);
+calcBtnHome.addEventListener('click', showCalc);
+calcBtnCalc.addEventListener('click', CalcTax); 
