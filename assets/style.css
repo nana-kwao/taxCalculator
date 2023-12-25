@@ -14,7 +14,7 @@
 
 body{
   width: inherit;
-  height: auto;
+  height: max-content;
   color: #ffffff;
   background-image: url("images/background.jpg");
   background-repeat: no-repeat;
@@ -24,6 +24,7 @@ body{
   width: 100%;
   height: 100%;
   background-color: inherit;
+  padding-bottom: 280px;
 }
 .menu{
   display: flex;
