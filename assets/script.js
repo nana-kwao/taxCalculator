@@ -7,6 +7,7 @@ const aboutBtn = document.getElementById("aboutBtn");
 const calcBtnHome = document.querySelector(".home .calcBtn");
 const calcBtnCalc = document.querySelector("form .calcBtn");
 
+// get elements by ID
 const home = document.getElementById("home");
 const calc = document.getElementById("calc");
 const result = document.getElementById("result");
