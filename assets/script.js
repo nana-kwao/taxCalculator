@@ -24,6 +24,13 @@ function scrollToSection(sectionId){
   }
 }
 
+  window.addEventListener('load', function () {
+      var loadingContainer = document.getElementById('loading-container');
+      loadingContainer.style.opacity = 0;
+      setTimeout(function () {
+        loadingContainer.style.display = 'none';
+      }, 500); // Adjust the duration of the fade out transition
+    });
 
 const CalcTax = () => {
   // get form value
