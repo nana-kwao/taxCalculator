@@ -13,34 +13,15 @@ const result = document.getElementById("result");
 const about = document.getElementById("about");
 
 // functions for showing various tabs
-const showHome = () => {
-  home.style.display = "flex";
-  result.style.display = "none";
-  about.style.display = "none";
-  calc.style.display = "none";
+function scrollToSection(sectionId){
+  const section = document.getElementById(sectionId);
+  if (section){
+    window.scrollTo({
+      top: section.offsetTop,
+      behavior: "smooth",
+    })
+  }
 }
-
-const showCalc = () => {
-  home.style.display = "none";
-  result.style.display = "none";
-  about.style.display = "none";
-  calc.style.display = "flex";
-}
-
-const showResult = () => {
-  home.style.display = "none";
-  result.style.display = "flex";
-  about.style.display = "none";
-  calc.style.display = "none";
-}
-
-const showAbout = () => {
-  home.style.display = "none";
-  result.style.display = "none";
-  about.style.display = "flex";
-  calc.style.display = "none";
-}
-
 
 
 const CalcTax = () => {
@@ -53,7 +34,7 @@ const CalcTax = () => {
     nhil : () => {const results = income * (25/1219); return parseFloat(results.toFixed(2));},
     getfund : () => {const results = income * (25/1219); return parseFloat(results.toFixed(2));},
     covidlevy : () => {const results = income * (10/1219); return parseFloat(results.toFixed(2));},
-    totalLevies : () => {const results = Levies.nhil() + Levies.getfund() + Levies.covidlevy(); return results;},
+    totalLevies : () => {const results = Levies.nhil() + Levies.getfund() + Levies.covidlevy(); return parseFloat(results.toFixed(2));},
 
     // taxable outputs
     nhilTaxable : () => {const results = Levies.nhil() / (2.5/100); return parseFloat(results.toFixed(2));},
@@ -65,7 +46,7 @@ const CalcTax = () => {
   const VAT = {
     vatOutput : () => {const results = income * (159/1219); return parseFloat(results.toFixed(2));},
     vatInput : () => {const results = getVatInput * (10/1219); return parseFloat(results.toFixed(2));},
-    totalVats : () => {const results = VAT.vatOutput() - VAT.vatInput(); return results;},
+    totalVats : () => {const results = VAT.vatOutput() - VAT.vatInput(); return parseFloat(results.toFixed(2));},
 
     // taxable outputs
     vatOutputTaxable : () => {const results = VAT.vatOutput() / (15/100); return parseFloat(results.toFixed(2));},
@@ -140,9 +121,4 @@ const CalcTax = () => {
 }
 
 // add event listeners to menu lists
-homeBtn.addEventListener("click", showHome);
-calcBtn.addEventListener("click", showCalc);
-resultBtn.addEventListener("click", showResult);
-aboutBtn.addEventListener("click", showAbout);
-calcBtnHome.addEventListener('click', showCalc);
 calcBtnCalc.addEventListener('click', CalcTax); 
