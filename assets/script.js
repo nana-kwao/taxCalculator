@@ -53,7 +53,7 @@ const CalcTax = () => {
   //vat calculation 
   const VAT = {
     vatOutput : () => {const results = income * (159/1219); return parseFloat(results.toFixed(2));},
-    vatInput : () => {const results = getVatInput * (10/1219); return parseFloat(results.toFixed(2));},
+    vatInput : () => {const results = getVatInput * (159/1219); return parseFloat(results.toFixed(2));},
     totalVats : () => {const results = VAT.vatOutput() - VAT.vatInput(); return parseFloat(results.toFixed(2));},
 
     // taxable outputs
